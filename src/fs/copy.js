@@ -4,7 +4,7 @@ const copy = async () => {
     const dir = './src/fs/files'
     const newDir = './src/fs/files_copy'
 
-    if (fs.existsSync(newDir)) {
+    if (fs.existsSync(newDir) || !fs.existsSync(dir)) {
         throw Error('FS operation failed')
     } else {
         fs.cpSync(dir, newDir, {
